@@ -5,7 +5,7 @@ name 'qbx_chat_theme'
 description 'mantine-styled theme for the chat resource.'
 version '1.0.0'
 author 'um - d4 | <qbox team>'
-repository 'https://github.com/alp1x/qbx_chat_theme'
+repository 'https://github.com/Qbox-project/qbx_chat_theme'
 
 files {
     'theme/*'
