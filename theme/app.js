@@ -1,41 +1,42 @@
-(function () {
-    const chatConfig = {
-        logo: 'https://files.fivemerr.com/images/794545e0-522f-4069-acf7-2645c5635d40.png',
-        position: 'left', // left,right,top,bottom
+(async () => {
+    const RESOURCE_NAME = 'qbx_chat_theme';
+
+    const data = await fetchNui('config');
+
+    /** @type {{ property: string; value: string | null }[]} */
+    const vars = [
+        { property: '--main-color', value: data.mainColor },
+        { property: '--border-color', value: data.borderColor },
+        { property: '--text-color', value: data.textColor },
+        { property: '--faint-color', value: data.faintColor },
+        { property: '--font-family', value: data.fontFamily },
+        { property: '--console-font-family', value: data.consoleFontFamily },
+        { property: '--suggestion-font-family', value: data.suggestionFontFamily },
+        { property: '--input-icon-url', value: `url(${data.inputIconUrl})` },
+        { property: '--message-icon-url', value: `url(${data.messageIconUrl})` },
+        { property: '--user-icon-url', value: `url(${data.userIconUrl})` },
+        { property: '--console-icon-url', value: `url(${data.consoleIconUrl})` },
+    ];
+
+    for (const { property, value } of vars) {
+        document.documentElement.style.setProperty(property, value);
     }
 
-    // Prefix Logo Side //
-    const prefixSelect = document.querySelector('.prefix')
-    prefixSelect.innerHTML = ""; // reset
-    prefixSelect.style.backgroundImage = `url(${chatConfig.logo})`;
+    /**
+     * @param {string} endpoint
+     * @param {unknown} data
+     */
+    async function fetchNui(endpoint, data) {
+        const body = typeof data === 'undefined' || data === null ? null : JSON.stringify(data);
 
-    // Chat Position //
-    const chat = document.querySelector('.chat-input')
-    chat.style.top = 'inherit';
-    chat.style.right = 'inherit';
-    chat.style.bottom = 'inherit';
-    chat.style.left = 'inherit';
+        const response = await fetch(`https://${RESOURCE_NAME}/${endpoint}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body,
+        });
 
-    switch (chatConfig.position) {
-        case 'left':
-            chat.style.top = '30%';
-            chat.style.left = '0.8%';
-            break;
-        case 'right':
-            chat.style.top = '30%';
-            chat.style.right = '0.8%';
-            break;
-        case 'top':
-            chat.style.top = '5%';
-            chat.style.left = '40%';
-            break;
-        case 'bottom':
-            chat.style.bottom = '5%';
-            chat.style.left = '40%';
-            break;
-        default:
-            console.log('Invalid position');
+        return await response.json();
     }
-
-
 })();
