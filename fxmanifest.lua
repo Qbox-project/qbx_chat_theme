@@ -14,6 +14,10 @@ client_scripts {
     'client/config.lua',
 }
 
+server_scripts {
+    'server/user.lua',
+}
+
 files {
     'theme/**'
 }
@@ -24,8 +28,10 @@ chat_theme 'qbox_chat' {
     styleSheet = 'theme/app.css',
     script = 'theme/app.js',
     msgTemplates = {
-        default = '<p class="message-wrapper"><span class="author user"><span>{0}</span></span><span><span>{1}</span></span></p>',
+        default = '<p class="message-wrapper"><span class="author alt"><span>{0}</span></span><span><span>{1}</span></span></p>',
         defaultAlt = '<p class="message-wrapper"><span class="alt"><span>{0}</span></span></p>',
         print = '<p class="message-wrapper"><span class="author console">Console</span><span class="print color-7"><span>{0}</span></span></p>',
+
+        user = '<p class="message-wrapper"><span class="author user"><span>{0}</span></span><span><span>{1}</span></span></p>',
     },
 }
