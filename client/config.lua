@@ -11,7 +11,9 @@ RegisterNUICallback('config', function(_data, cb)
 
         inputIconUrl = GetConvar('qbx_chat:inputIconUrl', 'https://cfx-nui-qbx_chat_theme/theme/icons/duck.png'),
         messageIconUrl = GetConvar('qbx_chat:messageIconUrl', 'https://cfx-nui-qbx_chat_theme/theme/icons/message.svg'),
-        userIconUrl = GetConvar('qbx_chat:userIconUrl', 'https://cfx-nui-qbx_chat_theme/theme/icons/user.svg'),
         consoleIconUrl = GetConvar('qbx_chat:consoleIconUrl', 'https://cfx-nui-qbx_chat_theme/theme/icons/console.svg'),
+        joinIconUrl = GetConvar('qbx_chat:joinIconUrl', 'https://cfx-nui-qbx_chat_theme/theme/icons/join.svg'),
+        quitIconUrl = GetConvar('qbx_chat:quitIconUrl', 'https://cfx-nui-qbx_chat_theme/theme/icons/quit.svg'),
+        userIconUrl = GetConvar('qbx_chat:userIconUrl', 'https://cfx-nui-qbx_chat_theme/theme/icons/user.svg'),
     })
 end)
