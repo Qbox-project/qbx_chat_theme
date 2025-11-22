@@ -14,8 +14,10 @@
         { property: '--suggestion-font-family', value: data.suggestionFontFamily },
         { property: '--input-icon-url', value: `url(${data.inputIconUrl})` },
         { property: '--message-icon-url', value: `url(${data.messageIconUrl})` },
-        { property: '--user-icon-url', value: `url(${data.userIconUrl})` },
         { property: '--console-icon-url', value: `url(${data.consoleIconUrl})` },
+        { property: '--join-icon-url', value: `url(${data.joinIconUrl})` },
+        { property: '--quit-icon-url', value: `url(${data.quitIconUrl})` },
+        { property: '--user-icon-url', value: `url(${data.userIconUrl})` },
     ];
 
     for (const { property, value } of vars) {
