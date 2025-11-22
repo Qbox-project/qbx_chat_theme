@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "sumneko.lua",
+        "communityox.cfxlua-vscode-cox",
+        "ihyajb.qbcore-code-snippets",
+        "EditorConfig.EditorConfig",
+    ]
+}
